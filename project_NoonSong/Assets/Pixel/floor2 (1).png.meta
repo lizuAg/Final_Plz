@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 7bb885f3eab9ab0449e8431d93840484
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6258264064240453399
+    second: floor2 (1)_0
+  - first:
+      213: 2385445605099609699
+    second: floor2 (1)_1
+  - first:
+      213: -2380679763464573687
+    second: floor2 (1)_2
+  - first:
+      213: -799545993675858200
+    second: floor2 (1)_3
+  - first:
+      213: -4146394493793821159
+    second: floor2 (1)_4
+  - first:
+      213: 565291930494700457
+    second: floor2 (1)_5
+  - first:
+      213: -6170035123571574502
+    second: floor2 (1)_6
+  - first:
+      213: -1603058930335033023
+    second: floor2 (1)_7
+  - first:
+      213: -4800276978289421885
+    second: floor2 (1)_8
+  - first:
+      213: 7420734044882054952
+    second: floor2 (1)_9
+  - first:
+      213: -5303062930021177154
+    second: floor2 (1)_10
+  - first:
+      213: 2919323093561271630
+    second: floor2 (1)_11
+  - first:
+      213: -8942028249645156403
+    second: floor2 (1)_12
+  - first:
+      213: -5661478272938164227
+    second: floor2 (1)_13
+  - first:
+      213: 3721694314857014707
+    second: floor2 (1)_14
+  - first:
+      213: -240858662889120561
+    second: floor2 (1)_15
+  - first:
+      213: 3902067903747524516
+    second: floor2 (1)_16
+  - first:
+      213: 4629379786147301733
+    second: floor2 (1)_17
+  - first:
+      213: 2252734529449881679
+    second: floor2 (1)_18
+  - first:
+      213: -6648516006239456008
+    second: floor2 (1)_19
+  - first:
+      213: 3598797677315713037
+    second: floor2 (1)_20
+  - first:
+      213: 8028297506472167259
+    second: floor2 (1)_21
+  - first:
+      213: -3693070825993578968
+    second: floor2 (1)_22
+  - first:
+      213: -7810578731493574056
+    second: floor2 (1)_23
+  - first:
+      213: 6042049631468915310
+    second: floor2 (1)_24
+  - first:
+      213: -6283802021077200828
+    second: floor2 (1)_25
+  - first:
+      213: -2493387944142500346
+    second: floor2 (1)_26
+  - first:
+      213: 3324432690037425107
+    second: floor2 (1)_27
+  - first:
+      213: 3356217269629385175
+    second: floor2 (1)_28
+  - first:
+      213: -5242326847742346543
+    second: floor2 (1)_29
+  - first:
+      213: 5833274037350970001
+    second: floor2 (1)_30
+  - first:
+      213: -6835141343873382409
+    second: floor2 (1)_31
+  - first:
+      213: -7068870921634816468
+    second: floor2 (1)_32
+  - first:
+      213: -3010805098111958783
+    second: floor2 (1)_33
+  - first:
+      213: -8570003693071009083
+    second: floor2 (1)_34
+  - first:
+      213: -7376006271413683901
+    second: floor2 (1)_35
+  - first:
+      213: -4184888735191605635
+    second: floor2 (1)_36
+  - first:
+      213: -4768445964818471701
+    second: floor2 (1)_37
+  - first:
+      213: -1258590395912891752
+    second: floor2 (1)_38
+  - first:
+      213: 7768213217712649158
+    second: floor2 (1)_39
+  - first:
+      213: 2858594200410786472
+    second: floor2 (1)_40
+  - first:
+      213: -7487039053735119356
+    second: floor2 (1)_41
+  - first:
+      213: -1364773631063092611
+    second: floor2 (1)_42
+  - first:
+      213: 7330419748016799416
+    second: floor2 (1)_43
+  - first:
+      213: 8111696872741265243
+    second: floor2 (1)_44
+  - first:
+      213: 4876503748541396031
+    second: floor2 (1)_45
+  - first:
+      213: 8585624092626312491
+    second: floor2 (1)_46
+  - first:
+      213: -2948883516442662285
+    second: floor2 (1)_47
+  - first:
+      213: -3171517228222507054
+    second: floor2 (1)_48
+  - first:
+      213: -3589020496474503746
+    second: floor2 (1)_49
+  - first:
+      213: -8060268230556871393
+    second: floor2 (1)_50
+  - first:
+      213: 1018222682841921283
+    second: floor2 (1)_51
+  - first:
+      213: 6359030693144529655
+    second: floor2 (1)_52
+  - first:
+      213: -3400174893226021203
+    second: floor2 (1)_53
+  - first:
+      213: 7775339101326713510
+    second: floor2 (1)_54
+  - first:
+      213: 1503662258491711905
+    second: floor2 (1)_55
+  - first:
+      213: 2890402393962210131
+    second: floor2 (1)_56
+  - first:
+      213: -8464402153262578664
+    second: floor2 (1)_57
+  - first:
+      213: 2182467475777940526
+    second: floor2 (1)_58
+  - first:
+      213: -2164406942888412716
+    second: floor2 (1)_59
+  - first:
+      213: -3799592829324430359
+    second: floor2 (1)_60
+  - first:
+      213: -6921995595804882067
+    second: floor2 (1)_61
+  - first:
+      213: -8458679086762458116
+    second: floor2 (1)_62
+  - first:
+      213: -5187381096988597343
+    second: floor2 (1)_63
+  - first:
+      213: 6825952089608427436
+    second: floor2 (1)_64
+  - first:
+      213: 384359225559506483
+    second: floor2 (1)_65
+  - first:
+      213: -1640852290015724987
+    second: floor2 (1)_66
+  - first:
+      213: 8490839373562001896
+    second: floor2 (1)_67
+  - first:
+      213: 5028896034759880051
+    second: floor2 (1)_68
+  - first:
+      213: 8193141974100394019
+    second: floor2 (1)_69
+  - first:
+      213: 3915171392219112026
+    second: floor2 (1)_70
+  - first:
+      213: 801053569323811264
+    second: floor2 (1)_71
+  - first:
+      213: -5485460658361515974
+    second: floor2 (1)_72
+  - first:
+      213: 5646853079388568147
+    second: floor2 (1)_73
+  - first:
+      213: 81183485559733034
+    second: floor2 (1)_74
+  - first:
+      213: -5630809700583130702
+    second: floor2 (1)_75
+  - first:
+      213: 5939695727288342063
+    second: floor2 (1)_76
+  - first:
+      213: 3120039301211756718
+    second: floor2 (1)_77
+  - first:
+      213: 939373081928848305
+    second: floor2 (1)_78
+  - first:
+      213: -6185940764682275990
+    second: floor2 (1)_79
+  - first:
+      213: -419093888112350388
+    second: floor2 (1)_80
+  - first:
+      213: -8001049186785815281
+    second: floor2 (1)_81
+  - first:
+      213: -201989273308800521
+    second: floor2 (1)_82
+  - first:
+      213: 146209393594517268
+    second: floor2 (1)_83
+  - first:
+      213: -6374054296832139972
+    second: floor2 (1)_84
+  - first:
+      213: 1488256952524979849
+    second: floor2 (1)_85
+  - first:
+      213: 8595797010125003637
+    second: floor2 (1)_86
+  - first:
+      213: 8631497669422625680
+    second: floor2 (1)_87
+  - first:
+      213: 4842824707220527888
+    second: floor2 (1)_88
+  - first:
+      213: 5783450232462869083
+    second: floor2 (1)_89
+  - first:
+      213: 2056191704951270258
+    second: floor2 (1)_90
+  - first:
+      213: -412930936033901455
+    second: floor2 (1)_91
+  - first:
+      213: -2536920459938060840
+    second: floor2 (1)_92
+  - first:
+      213: 4811734883880330454
+    second: floor2 (1)_93
+  - first:
+      213: -7037850828193549224
+    second: floor2 (1)_94
+  - first:
+      213: -4594633127333545755
+    second: floor2 (1)_95
+  - first:
+      213: 1914967480113549183
+    second: floor2 (1)_96
+  - first:
+      213: 2306945969217862853
+    second: floor2 (1)_97
+  - first:
+      213: -6138845304695452074
+    second: floor2 (1)_98
+  - first:
+      213: -5898799361098482429
+    second: floor2 (1)_99
+  - first:
+      213: -264190377676887749
+    second: floor2 (1)_100
+  - first:
+      213: -8492911390784825979
+    second: floor2 (1)_101
+  - first:
+      213: -855517867556755700
+    second: floor2 (1)_102
+  - first:
+      213: 5375728428412753584
+    second: floor2 (1)_103
+  - first:
+      213: 7165035213532263045
+    second: floor2 (1)_104
+  - first:
+      213: -1533634493686361660
+    second: floor2 (1)_105
+  - first:
+      213: 400275155373655417
+    second: floor2 (1)_106
+  - first:
+      213: 1140755580488273457
+    second: floor2 (1)_107
+  - first:
+      213: 948667647171290702
+    second: floor2 (1)_108
+  - first:
+      213: 8303243357486968555
+    second: floor2 (1)_109
+  - first:
+      213: 4431946137650991025
+    second: floor2 (1)_110
+  - first:
+      213: -3684054232840831065
+    second: floor2 (1)_111
+  - first:
+      213: -1028516091705776440
+    second: floor2 (1)_112
+  - first:
+      213: -1559509133820766950
+    second: floor2 (1)_113
+  - first:
+      213: -8009555042348610724
+    second: floor2 (1)_114
+  - first:
+      213: 9219112576017109359
+    second: floor2 (1)_115
+  - first:
+      213: -1759798592116728672
+    second: floor2 (1)_116
+  - first:
+      213: 1460758083257053525
+    second: floor2 (1)_117
+  - first:
+      213: -7068418968128349580
+    second: floor2 (1)_118
+  - first:
+      213: -4443251557292967772
+    second: floor2 (1)_119
+  - first:
+      213: 1658651328840168453
+    second: floor2 (1)_120
+  - first:
+      213: 2519302942475342022
+    second: floor2 (1)_121
+  - first:
+      213: 5514977157703135597
+    second: floor2 (1)_122
+  - first:
+      213: -3190427451572466559
+    second: floor2 (1)_123
+  - first:
+      213: -2943648066690779142
+    second: floor2 (1)_124
+  - first:
+      213: 2847392218854099210
+    second: floor2 (1)_125
+  - first:
+      213: 170577305701503637
+    second: floor2 (1)_126
+  - first:
+      213: -2737937751292345058
+    second: floor2 (1)_127
+  - first:
+      213: 819527284993462844
+    second: floor2 (1)_128
+  - first:
+      213: -3972104137298928597
+    second: floor2 (1)_129
+  - first:
+      213: -1739233682147409475
+    second: floor2 (1)_130
+  - first:
+      213: 3076314679364359655
+    second: floor2 (1)_131
+  - first:
+      213: -9148791428897406759
+    second: floor2 (1)_132
+  - first:
+      213: 474974375420019162
+    second: floor2 (1)_133
+  - first:
+      213: 4054717136755080155
+    second: floor2 (1)_134
+  - first:
+      213: 673104839106316393
+    second: floor2 (1)_135
+  - first:
+      213: 4663647548021486629
+    second: floor2 (1)_136
+  - first:
+      213: -6940726527716696643
+    second: floor2 (1)_137
+  - first:
+      213: -7441119083443971683
+    second: floor2 (1)_138
+  - first:
+      213: 6126280093729543602
+    second: floor2 (1)_139
+  - first:
+      213: -2775857303684353089
+    second: floor2 (1)_140
+  - first:
+      213: 5906527688305567075
+    second: floor2 (1)_141
+  - first:
+      213: 2606696389500436575
+    second: floor2 (1)_142
+  - first:
+      213: 2365573464209933449
+    second: floor2 (1)_143
+  - first:
+      213: -3232724823695339699
+    second: floor2 (1)_144
+  - first:
+      213: 4838260483994209905
+    second: floor2 (1)_145
+  - first:
+      213: 7823536391265591232
+    second: floor2 (1)_146
+  - first:
+      213: 8434162019469054652
+    second: floor2 (1)_147
+  - first:
+      213: 596046227687534673
+    second: floor2 (1)_148
+  - first:
+      213: 6392920343125791619
+    second: floor2 (1)_149
+  - first:
+      213: -6974864111649609094
+    second: floor2 (1)_150
+  - first:
+      213: 5459996376061427234
+    second: floor2 (1)_151
+  - first:
+      213: -2093142247059943183
+    second: floor2 (1)_152
+  - first:
+      213: -7157805480219209580
+    second: floor2 (1)_153
+  - first:
+      213: 1367775311371701888
+    second: floor2 (1)_154
+  - first:
+      213: -3947548799053490567
+    second: floor2 (1)_155
+  - first:
+      213: -8781123246822026573
+    second: floor2 (1)_156
+  - first:
+      213: -7078219334654103665
+    second: floor2 (1)_157
+  - first:
+      213: -3219014378520447190
+    second: floor2 (1)_158
+  - first:
+      213: 940867483888525714
+    second: floor2 (1)_159
+  - first:
+      213: -2614352269415182359
+    second: floor2 (1)_160
+  - first:
+      213: 7209038362040614672
+    second: floor2 (1)_161
+  - first:
+      213: 1643735860923577423
+    second: floor2 (1)_162
+  - first:
+      213: -5784168572456173526
+    second: floor2 (1)_163
+  - first:
+      213: 2897081664887452859
+    second: floor2 (1)_164
+  - first:
+      213: -684424080184813815
+    second: floor2 (1)_165
+  - first:
+      213: 1165575452360274976
+    second: floor2 (1)_166
+  - first:
+      213: 6646484037623495457
+    second: floor2 (1)_167
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: floor2 (1)_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 221
+        width: 226
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71705ab3202d9d650800000000000000
+      internalID: 6258264064240453399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor2 (1)_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 24
+        width: 226
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e9af2a32eca1120800000000000000
+      internalID: 2385445605099609699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
