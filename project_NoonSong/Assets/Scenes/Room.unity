@@ -5816,7 +5816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90403c74f2e41d74fb71945b0c36359d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 5
+  jumpPower: 10
   maxSpeed: 5
 --- !u!95 &2021428720
 Animator:
@@ -5932,9 +5932,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
