@@ -11,6 +11,7 @@ public class PlayerMove_room : MonoBehaviour
     Animator anim;
     private int jumpCheck;
     private bool isOnbed;
+    float timer;
 
     void Awake()
     {
@@ -66,12 +67,13 @@ public class PlayerMove_room : MonoBehaviour
         if (rigid.velocity.y < 0)
         {
             Debug.DrawRay(rigid.position, Vector3.down * (1), new Color(0, 1, 0));
-            RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector2.down, 1, LayerMask.GetMask("Platform"));
+            RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
             if (rayHit.collider != null)
             {
                 if (rayHit.distance < 0.6f)
                 {
                     anim.SetBool("isJumping", false);
+                    anim.SetBool("isSitting", false);
                 }
             }
         }
@@ -82,6 +84,10 @@ public class PlayerMove_room : MonoBehaviour
         {
             Debug.Log("Enter");
             isOnbed = true;
+        }
+        else if(other.gameObject.tag == "door") //지하철 문이동
+        {
+            transform.Translate(22, 0, 0);
         }
     }
     void OnTriggerExit2D(Collider2D other)
@@ -102,6 +108,27 @@ public class PlayerMove_room : MonoBehaviour
             {
                 Debug.Log("컴퓨터엔딩~!~!~!");
             }
+        }
+        else if (other.gameObject.name == "chairCollider")
+        {
+            timer += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                anim.SetBool("isSitting", true);
+                if (timer > 3)
+                {
+                    Debug.Log("의자엔딩~!~!");
+                    transform.position = new Vector3(-15,0,0);
+                    anim.SetBool("isSitting", false);
+                    timer = 0;
+                }
+            }
+        }
+        else if(other.gameObject.name == "frontdoor")
+        {
+            timer += Time.deltaTime;
+            if(timer>1)
+                Debug.Log("사람이 너무 많습니다.");
         }
     }
 }
