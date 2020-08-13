@@ -12,6 +12,7 @@ public class PlayerMove_room : MonoBehaviour
     private int jumpCheck;
     private bool isOnbed;
     float timer;
+    private float speed = 3f;
 
     void Awake()
     {
@@ -77,7 +78,24 @@ public class PlayerMove_room : MonoBehaviour
                 }
             }
         }
+
+        //대학가 사다리
+        if(isLadder){
+            float ver = Input.GetAxis("Vertical");
+            rigid.gravityScale = 0;
+            rigid.velocity = new Vector2(rigid.velocity.x, ver*speed);
+
+            //stop speed = 0 필요?
+            
+        }
+        else{
+            rigid.gravityScale = 4f;
+        }
+
+
     }
+
+    public bool isLadder;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "bedCheck")
@@ -89,6 +107,11 @@ public class PlayerMove_room : MonoBehaviour
         {
             transform.Translate(22, 0, 0);
         }
+
+        //대학가 사다리 접촉 체크
+        if(other.CompareTag("Ladders")){
+            isLadder = true;
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
@@ -97,6 +120,11 @@ public class PlayerMove_room : MonoBehaviour
             Debug.Log("Exit");
             isOnbed = false;
             jumpCheck = 0;
+        }
+
+        //대학가 사다리 접촉 체크
+        if(other.CompareTag("Ladders")){
+            isLadder = false;
         }
     }
     void OnTriggerStay2D(Collider2D other)
