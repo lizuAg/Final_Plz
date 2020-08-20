@@ -56,7 +56,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Potal.cs" />
+     <Compile Include="Assets\Room\Script\GameManager.cs" />
+     <Compile Include="Assets\Room\Script\ObjData.cs" />
      <Compile Include="Assets\Room\Script\PlayerMove_room.cs" />
+     <Compile Include="Assets\Room\Script\TalkManager.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/leese/Documents/GitHub/Final_Plz/project_NoonSong/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

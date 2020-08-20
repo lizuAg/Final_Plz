@@ -12,6 +12,8 @@ public class PlayerMove_room : MonoBehaviour
     private int jumpCheck;
     private bool isOnbed;
     float timer;
+    GameObject scanObject;
+    public GameManager manager;
 
     void Awake()
     {
@@ -22,7 +24,7 @@ public class PlayerMove_room : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
+        if (manager.isAction ? false : Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
@@ -33,17 +35,17 @@ public class PlayerMove_room : MonoBehaviour
                 if (jumpCheck ==5)
                 {
                     rigid.AddForce(new Vector2 (3,8), ForceMode2D.Impulse);
-                    Debug.Log("침대점프엔딩!~~!~~!");
+                    manager.talkText.text = "탄력적인 침대는 [눈송]을 천장을 뚫고 날려버렸다~~!";
                 }
             }
         }
         //Stop Speed
-        if (Input.GetButtonUp("Horizontal"))
+        if (manager.isAction ? false : Input.GetButtonUp("Horizontal"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
         //Direction Sprite 방향전환
-        if (Input.GetButton("Horizontal"))
+        if (manager.isAction ? false :Input.GetButton("Horizontal"))
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
         //Animation
         if (Mathf.Abs(rigid.velocity.x) < 0.3) //절댓값이 0.3보다 작으면(멈추면)
@@ -54,7 +56,7 @@ public class PlayerMove_room : MonoBehaviour
     void FixedUpdate()
     {
         //Move By Key Control
-        float h = Input.GetAxisRaw("Horizontal");
+        float h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
 
         rigid.AddForce(Vector2.right * h * 2, ForceMode2D.Impulse);
 
@@ -76,6 +78,19 @@ public class PlayerMove_room : MonoBehaviour
                     anim.SetBool("isSitting", false);
                 }
             }
+        }
+
+        Debug.DrawRay(rigid.position, Vector3.right * (1), new Color(0, 1, 0));
+        RaycastHit2D rayHit2 = Physics2D.Raycast(rigid.position, Vector3.right, 1, LayerMask.GetMask("Object"));
+        if (rayHit2.collider != null) //스캔한 오브젝트 저장
+        {
+            scanObject = rayHit2.collider.gameObject;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z) && scanObject != null) //오브젝트 스캔
+        {
+            manager.Action(scanObject);
+            scanObject = null;
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -103,21 +118,23 @@ public class PlayerMove_room : MonoBehaviour
     {
         if (other.gameObject.name == "com")
         {
-            Debug.Log("윗방향키를 눌러주세요.");
-            if (Input.GetKeyUp(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Debug.Log("컴퓨터엔딩~!~!~!");
+                manager.talkText.text = "눈송은 컴퓨터의 유혹에 빠져...학교에 늦어버렸다!!";
+                manager.isAction = false;
             }
         }
         else if (other.gameObject.name == "chairCollider")
         {
-            timer += Time.deltaTime;
+            manager.talkText.text = "아래 방향키를 연타하세요 !";
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 anim.SetBool("isSitting", true);
-                if (timer > 3)
+                timer += Time.deltaTime;
+                Debug.Log("앉은 시간 : " + timer);
+                if (timer > 0.3)
                 {
-                    Debug.Log("의자엔딩~!~!");
+                    manager.talkText.text = "눈송이는 의자에 엉덩이가 붙어 학교에 지각했다..";
                     transform.position = new Vector3(-15,0,0);
                     anim.SetBool("isSitting", false);
                     timer = 0;
