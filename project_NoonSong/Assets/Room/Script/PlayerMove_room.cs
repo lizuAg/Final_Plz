@@ -9,9 +9,14 @@ public class PlayerMove_room : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
+
     private int jumpCheck;
     private bool isOnbed;
+
     float timer;
+
+    public GameManager manager;
+    GameObject scanObject;
 
     void Awake()
     {
@@ -29,10 +34,11 @@ public class PlayerMove_room : MonoBehaviour
             //침대에서 점프
             if (isOnbed)
             {
+                rigid.AddForce(new Vector2(0, 2), ForceMode2D.Impulse);
                 Debug.Log("침대에서 점프횟수: " + (++jumpCheck));
                 if (jumpCheck ==5)
                 {
-                    rigid.AddForce(new Vector2 (3,8), ForceMode2D.Impulse);
+                    rigid.AddForce(new Vector2 (3,10), ForceMode2D.Impulse);
                     Debug.Log("침대점프엔딩!~~!~~!");
                 }
             }
@@ -44,12 +50,19 @@ public class PlayerMove_room : MonoBehaviour
         }
         //Direction Sprite 방향전환
         if (Input.GetButton("Horizontal"))
+        {
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+        }
         //Animation
         if (Mathf.Abs(rigid.velocity.x) < 0.3) //절댓값이 0.3보다 작으면(멈추면)
             anim.SetBool("isWalking", false);
         else
             anim.SetBool("isWalking", true);
+        //ScanObject
+        if (Input.GetKeyUp(KeyCode.UpArrow) && scanObject != null)
+        {
+            manager.Action(scanObject);
+        }
     }
     void FixedUpdate()
     {
@@ -77,10 +90,24 @@ public class PlayerMove_room : MonoBehaviour
                 }
             }
         }
+
+        //Ray-dialogue
+        Debug.DrawRay(rigid.position-new Vector2(1,0), new Vector2(2, 0), new Color(0, 0, 1));
+        RaycastHit2D rayHitD = Physics2D.Raycast(rigid.position - new Vector2(1, 0), new Vector2(2, 0), 1.5f, LayerMask.GetMask("Object"));
+        if (rayHitD.collider != null)
+        {
+            scanObject = rayHitD.collider.gameObject;
+        }
+        else
+        {
+            scanObject = null;
+        }
+
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "bedCheck")
+        if (other.gameObject.name == "bedCheck")//침대위 in
         {
             Debug.Log("Enter");
             isOnbed = true;
@@ -92,7 +119,7 @@ public class PlayerMove_room : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "bedCheck")
+        if (other.gameObject.name == "bedCheck")//침대위 out
         {
             Debug.Log("Exit");
             isOnbed = false;
