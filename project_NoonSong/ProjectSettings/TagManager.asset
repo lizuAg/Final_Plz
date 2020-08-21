@@ -6,6 +6,8 @@ TagManager:
   tags:
   - door
   - Chair
+  - Ladders
+  - Item
   layers:
   - Default
   - TransparentFX
