@@ -112,6 +112,14 @@ public class PlayerMove_room : MonoBehaviour
         if(other.CompareTag("Ladders")){
             isLadder = true;
         }
+
+        //coin,아이템
+        if(other.gameObject.tag == "Item"){
+            //포인트
+
+            // Deactive item
+            other.gameObject.SetActive(false);
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
