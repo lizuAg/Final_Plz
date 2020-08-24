@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove_room : MonoBehaviour
 {
@@ -14,7 +15,12 @@ public class PlayerMove_room : MonoBehaviour
     float timer;
     GameObject scanObject;
     public GameManager manager;
+<<<<<<< Updated upstream
+=======
     private float speed = 3f;
+    public FadeOut fadeout;
+    public GameObject frame;
+>>>>>>> Stashed changes
 
     void Awake()
     {
@@ -25,7 +31,7 @@ public class PlayerMove_room : MonoBehaviour
     void Update()
     {
         //Jump
-        if (manager.isAction ? false : Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
+        if (Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
@@ -41,12 +47,12 @@ public class PlayerMove_room : MonoBehaviour
             }
         }
         //Stop Speed
-        if (manager.isAction ? false : Input.GetButtonUp("Horizontal"))
+        if (Input.GetButtonUp("Horizontal"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
         //Direction Sprite 방향전환
-        if (manager.isAction ? false :Input.GetButton("Horizontal"))
+        if (Input.GetButton("Horizontal"))
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
         //Animation
         if (Mathf.Abs(rigid.velocity.x) < 0.3) //절댓값이 0.3보다 작으면(멈추면)
@@ -57,7 +63,7 @@ public class PlayerMove_room : MonoBehaviour
     void FixedUpdate()
     {
         //Move By Key Control
-        float h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+        float h = Input.GetAxisRaw("Horizontal");
 
         rigid.AddForce(Vector2.right * h * 2, ForceMode2D.Impulse);
 
@@ -93,23 +99,7 @@ public class PlayerMove_room : MonoBehaviour
             manager.Action(scanObject);
             scanObject = null;
         }
-        //대학가 사다리
-        if(isLadder){
-            float ver = Input.GetAxis("Vertical");
-            rigid.gravityScale = 0;
-            rigid.velocity = new Vector2(rigid.velocity.x, ver*speed);
-
-            //stop speed = 0 필요?
-            
-        }
-        else{
-            rigid.gravityScale = 4f;
-        }
-
-
     }
-
-    public bool isLadder;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "bedCheck")
@@ -121,19 +111,6 @@ public class PlayerMove_room : MonoBehaviour
         {
             transform.Translate(22, 0, 0);
         }
-
-        //대학가 사다리 접촉 체크
-        if(other.CompareTag("Ladders")){
-            isLadder = true;
-        }
-
-        //coin,아이템
-        if(other.gameObject.tag == "Item"){
-            //포인트
-
-            // Deactive item
-            other.gameObject.SetActive(false);
-        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
@@ -142,11 +119,6 @@ public class PlayerMove_room : MonoBehaviour
             Debug.Log("Exit");
             isOnbed = false;
             jumpCheck = 0;
-        }
-
-        //대학가 사다리 접촉 체크
-        if(other.CompareTag("Ladders")){
-            isLadder = false;
         }
     }
     void OnTriggerStay2D(Collider2D other)
@@ -179,8 +151,12 @@ public class PlayerMove_room : MonoBehaviour
         else if(other.gameObject.name == "frontdoor")
         {
             timer += Time.deltaTime;
-            if(timer>1)
-                Debug.Log("사람이 너무 많습니다.");
+            if (timer > 1)
+            {
+                manager.talkText.text = "사람이 너무 많은 곳으로 내리려다... 인파에 파묻혔다!!";
+                fadeout.Fade();
+                frame.SetActive(true);
+            }
         }
     }
 }
