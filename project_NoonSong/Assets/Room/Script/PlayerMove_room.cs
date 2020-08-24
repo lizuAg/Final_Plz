@@ -15,12 +15,9 @@ public class PlayerMove_room : MonoBehaviour
     float timer;
     GameObject scanObject;
     public GameManager manager;
-<<<<<<< Updated upstream
-=======
     private float speed = 3f;
     public FadeOut fadeout;
     public GameObject frame;
->>>>>>> Stashed changes
 
     void Awake()
     {
