@@ -42,6 +42,8 @@
      <Compile Include="Assets\Room\Script\PlatformIgnore.cs" />
      <Compile Include="Assets\Room\Script\PlayerMove_room.cs" />
      <Compile Include="Assets\Room\Script\TalkManager.cs" />
+     <Compile Include="Assets\School\Script_School\Ending_School.cs" />
+     <Compile Include="Assets\School\Script_School\MoveCamera.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.5f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
