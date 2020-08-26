@@ -9,9 +9,13 @@ public class FadeOut : MonoBehaviour
     float time = 0f;
     float FadeTime = 20f;
 
-    public void Fade()
+    public void OutFade()
     {
         StartCoroutine(FadeFlow());
+    }
+    public void InFade()
+    {
+        StartCoroutine(FadeinFlow());
     }
     IEnumerator FadeFlow()
     {
@@ -26,19 +30,17 @@ public class FadeOut : MonoBehaviour
             Panel.color = alpha;
             yield return null;
         }
-        /*time = 0f;
-
-        yield return new WaitForSeconds(1f);
-
-        //Fade In
+    }
+    IEnumerator FadeinFlow()
+    {
+        Panel.gameObject.SetActive(true);
+        Color alpha = Panel.color;
         while (alpha.a > 0f)
         {
             time += Time.deltaTime / FadeTime;
-            alpha.a = Mathf.Lerp(0, 1, time);
+            alpha.a = Mathf.Lerp(1,0, time);
             Panel.color = alpha;
             yield return null;
         }
-        Panel.gameObject.SetActive(false);
-        yield return null;*/
     }
 }
