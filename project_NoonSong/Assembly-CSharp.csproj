@@ -44,6 +44,7 @@
      <Compile Include="Assets\Room\Script\TalkManager.cs" />
      <Compile Include="Assets\School\Script_School\Ending_School.cs" />
      <Compile Include="Assets\School\Script_School\MoveCamera.cs" />
+     <Compile Include="Assets\School\Script_School\Teleport_s.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.5f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

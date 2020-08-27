@@ -16,6 +16,8 @@ public class PlayerMove_room : MonoBehaviour
     public GameManager manager;
     private float speed = 3f;
 
+    public int count_coin=0, count_bread=0;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -128,11 +130,18 @@ public class PlayerMove_room : MonoBehaviour
         }
 
         //coin,아이템
-        if(other.gameObject.tag == "Item"){
+        if(other.gameObject.tag == "Coin"){
             //포인트
-
+            count_coin = count_coin + 1;
             // Deactive item
             other.gameObject.SetActive(false);
+        }
+        if(other.gameObject.tag == "Bread"){
+            //포인트
+            count_bread = count_bread + 1;
+            // Deactive item
+            other.gameObject.SetActive(false);
+
         }
     }
     void OnTriggerExit2D(Collider2D other)

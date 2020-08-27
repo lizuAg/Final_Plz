@@ -7,7 +7,8 @@ TagManager:
   - door
   - Chair
   - Ladders
-  - Item
+  - Coin
+  - Bread
   layers:
   - Default
   - TransparentFX
