@@ -19,6 +19,9 @@ public class PlayerMove_room : MonoBehaviour
     public FadeOut fadeout;
 <<<<<<< Updated upstream
     public GameObject frame;
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
