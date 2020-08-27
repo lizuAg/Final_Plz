@@ -55,6 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Cave\Script\Fire.cs" />
+     <Compile Include="Assets\Cave\Script\enemy.cs" />
+     <Compile Include="Assets\Cave\Script\initScene.cs" />
+     <Compile Include="Assets\Cave\Script\playerMove_Cave.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Room\Script\ObjectData.cs" />
      <Compile Include="Assets\Room\Script\PlayerMove_room.cs" />
