@@ -10,12 +10,12 @@ public class GameManager : MonoBehaviour
     public GameObject talkPanel;
     public GameObject scanObject;
     public bool isAction;
+    public bool isClicked;
     public int talkIndex;
     public GameObject EndingImg;
     public GameObject frame;
     float timer;
     public GameObject btn;
-    FadeOut fadeMotion;
 
     public void Action(GameObject scanObj)
     {
@@ -34,11 +34,16 @@ public class GameManager : MonoBehaviour
             EndingImg.SetActive(true);
             btn.SetActive(true);
         }
+        if (isClicked)
+        {
+            frame.SetActive(false);
+            btn.SetActive(false);
+        }
     }
     public void SetBtn()
     {
+        isClicked = true;
         frame.SetActive(false);
-        fadeMotion.InFade();
         btn.SetActive(false);
     }
     void Talk(int id, bool isNpc)

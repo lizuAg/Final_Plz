@@ -17,13 +17,8 @@ public class PlayerMove_room : MonoBehaviour
     public GameManager manager;
     private float speed = 3f;
     public FadeOut fadeout;
-<<<<<<< Updated upstream
     public GameObject frame;
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    ChangeImg img;
 
     void Awake()
     {
@@ -157,9 +152,18 @@ public class PlayerMove_room : MonoBehaviour
             if (timer > 1)
             {
                 manager.talkText.text = "사람이 너무 많은 곳으로 내리려다... 인파에 파묻혔다!!";
-                fadeout.OutFade();
-                manager.Img();
+                EndingScene();
             }
+        }
+    }
+    void EndingScene()
+    {
+        fadeout.OutFade();
+        manager.Img();
+        if (manager.isClicked == true)
+        {
+            fadeout.InFade();
+            transform.position = new Vector3(-15, 0, 0);
         }
     }
 }

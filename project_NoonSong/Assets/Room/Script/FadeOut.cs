@@ -31,10 +31,12 @@ public class FadeOut : MonoBehaviour
             yield return null;
         }
     }
-    IEnumerator FadeinFlow()
+    IEnumerator FadeinFlow() //이거 페이드인 안되고 그냥 하얗게 팍 켜짐
     {
+        yield return new WaitForSeconds(1);
         Panel.gameObject.SetActive(true);
         Color alpha = Panel.color;
+        alpha.a = 0.1f;
         while (alpha.a > 0f)
         {
             time += Time.deltaTime / FadeTime;
@@ -42,5 +44,6 @@ public class FadeOut : MonoBehaviour
             Panel.color = alpha;
             yield return null;
         }
+        Panel.gameObject.SetActive(false);
     }
 }
