@@ -9,6 +9,7 @@ TagManager:
   - Ladders
   - Coin
   - Bread
+  - Restaurant
   layers:
   - Default
   - TransparentFX

@@ -9,13 +9,13 @@ public class Ending_School : MonoBehaviour
     public GameManager manager;
     
     //엔딩관련 변수
-    bool bus,elev,bubbletea;
-    bool kickboard,box_cat,teampler,bateacher;
+    bool bus,elev,bubbletea, restaurant_1, restaurant_2, restaurant_3, restaurant_4;
+    bool kickboard,box_cat,teampler,bateacher, box_elev;
 
-    int count_bread;
+    public int restaurant_count=0;
     
     //아이템변수
-    bool item_kickboard, item_cat, item_bateacher;
+    bool item_kickboard, item_cat, item_bateacher, item_elevator;
     
     bool item_tag; //현재 태그 상태 체크 = 태그됨 :true, 태그안됨: false
     int random;
@@ -40,14 +40,36 @@ public class Ending_School : MonoBehaviour
             }
         }
 
+        //2. 버스엔딩 + 15. 잘못내린엔딩 ** 고려해보기
+       
+
         //5. 엘베 엔딩 입력 *** 수정필요
         else if(elev && Input.GetKeyDown(KeyCode.Z)){
             
             //5-1) 만원 아이템 있으면 if -> 순간이동
-            transform.Translate(15f , 27f ,0);
-            //5-2) 만원 아이템 없으면 else로 수정
-            manager.talkText.text = "엔딩) [눈송]은 가까스로 엘레베이터에 도착했으나, 사람이 너무 많아 타야할 엘레베이터를 놓치고 말았다! 엘레베이터를 타려면 만원 아이템을 가져와라!";
+            if(item_elevator){
+                transform.Translate(15f , 27f ,0);
+            }
+            //5-2) 만원 아이템 없으면 else
+            else{
+                manager.talkText.text = "엔딩) [눈송]은 가까스로 엘레베이터에 도착했으나, 사람이 너무 많아 타야할 엘레베이터를 놓치고 말았다! 엘레베이터를 타려면 만원 아이템을 가져와라!";
+            }
+            
         }
+
+        //5-2. 엘레베이터 아이템(만원)획득
+        else if(box_elev && Input.GetKeyDown(KeyCode.Z)){
+            if(item_elevator){
+                manager.talkText.text = "이미 아이템을 획득한 상자입니다.";
+            }
+            else{
+                item_elevator = true;
+                manager.talkText.text = "만원 아이템을 획득하였습니다.";
+            }
+            box_elev = false;
+        }
+
+        
 
         //16. 킥보드 획득
         else if(kickboard && Input.GetKeyDown(KeyCode.Z))
@@ -65,15 +87,26 @@ public class Ending_School : MonoBehaviour
 
         //17. 고양이 간식 회득
         else if(box_cat && Input.GetKeyDown(KeyCode.Z)){
-            item_cat = true;
-            manager.talkText.text = "고양이 간식 아이템을 획득하였습니다.";
+            if(item_cat){
+                manager.talkText.text = "이미 아이템을 획득한 상자입니다.";
+            }
+            else{
+                item_cat = true;
+                manager.talkText.text = "고양이 간식 아이템을 획득하였습니다.";
+            }
             box_cat = false;
         }
 
         //22. 바선생약 획득
         else if(bateacher && Input.GetKeyDown(KeyCode.Z)){
-            item_bateacher=true;
-            manager.talkText.text = "바선생약 아이템을 획득하였습니다.";
+            if(item_bateacher){
+                manager.talkText.text = "이미 아이템을 획득한 상자입니다.";
+            }
+            else{
+                item_bateacher = true;
+                manager.talkText.text = "바선생약 아이템을 획득하였습니다.";
+            }
+        
             bateacher = false;
         }
 
@@ -81,12 +114,42 @@ public class Ending_School : MonoBehaviour
         else if(bubbletea && Input.GetKeyDown(KeyCode.Z)){
             manager.talkText.text = "엔딩) 이곳은 공차아닌 고차! [눈송]은 버블티를 먹다가 버블이 이에 낀 것을 알아차렸다.! 이 찝찝함을 해결하지 못하면 강의에 집중하지 못할 것이다. 지각하더라도 이에 낀 버블은 꼭 빼고 말것이다..";
         }
+
+        //28. 학교 앞 음식점 5개 이상 살펴보면 배불러서 지각
+        else if(restaurant_1 && Input.GetKeyDown(KeyCode.Z)){
+            restaurant_count ++;
+            manager.talkText.text = "이곳은 시금치 파스타가 맛있는 바시마시!";
+            restaurant_1 = false;
+        }
+        else if(restaurant_2 && Input.GetKeyDown(KeyCode.Z)){
+            restaurant_count ++;
+            manager.talkText.text = "와우세트 먹고 가자 !";
+            restaurant_2 = false;
+        }
+        else if(restaurant_3 && Input.GetKeyDown(KeyCode.Z)){
+            restaurant_count ++;
+            manager.talkText.text = "오늘도 사람이 많군!";
+            restaurant_3 = false;
+        }
+        else if(restaurant_4 && Input.GetKeyDown(KeyCode.Z)){
+            restaurant_count ++;
+            manager.talkText.text = "콩불먹고 볶음밥까지 먹어줘야 진정한 또가또!";
+            restaurant_4 = false;
+        }
+        
+        //28.
+        if(restaurant_count == 5){
+            manager.talkText.text = "엔딩)학교 앞 음식점은 보기만 해도 배부르다.. [눈송]은 너무 배가 부른 나머지 몸이 무거워져서 지각하고 말았다!";
+            restaurant_count = 6;
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //1, 떡집 엔딩
         if(collision.gameObject.name == "Store3"){
+            restaurant_count ++;
             manager.talkText.text = "엔딩) [눈송]은 떡 냄새에 홀렸다..! 떡의 유혹으로 인해 [눈송]은 등교할 의지를 잃었다..";
         }
 
@@ -117,6 +180,24 @@ public class Ending_School : MonoBehaviour
             manager.talkText.text = "엘레베이터를 탑승해 강의실로 이동하려면 z키를 눌러주세요.";
         }
 
+        //5-2. 만원아이템
+        else if(collision.gameObject.name == "Box_elevator"){
+            box_elev = true;
+            manager.talkText.text = "상자를 열려면 z키를 누르세요.";
+        }
+
+
+        //7. 까먹은 준비물 엔딩 **조금 더 생각
+        //8. 비둘기 monster
+        //10. 부자 엔딩 (player이동 스크립트에 구현)
+        //11. 입구역 엔딩 (x)
+        //12. 배탈엔딩 (player이동 스크립트에 구현)
+        //13. 쪽지 **고민..
+        
+        //13-2. 계단엔딩
+
+        //14. 휴강
+
         //16. 상자 - 킥보드 발견
         else if(collision.gameObject.name == "Box_Kickboards"){
             kickboard = true;
@@ -140,6 +221,10 @@ public class Ending_School : MonoBehaviour
             box_cat = true;
             manager.talkText.text = "상자를 열려면 z키를 누르세요.";
         }
+        // 고양이 배치
+        
+        //18. 코로나
+        //19. 전자출결
 
         //20. 물웅덩이 (트랩)
         else if(collision.gameObject.name == "Rain"){
@@ -156,6 +241,8 @@ public class Ending_School : MonoBehaviour
             bateacher = true;
             manager.talkText.text = "상자를 열려면 z키를 누르세요.";
         }
+        
+        //23. 설문조사, 도믿맨
 
         //24. PC방 엔딩
         else if(collision.gameObject.name == "Pcroom"){
@@ -174,7 +261,37 @@ public class Ending_School : MonoBehaviour
             bubbletea = true;
         }
 
-        //33. ? 에 헤딩하고 엔딩
+        //27. 교통사고 신호등 엔딩
+        else if(collision.gameObject.name == "Trafficlight"){
+            manager.talkText.text = "엔딩) [눈송]은 등교길에 신호등을 건너다가 그만 교통사고를 당하고 말았다! ";
+        }
+        
+        //28. 학교 앞 음식점 5개 이상 살펴보면 배불러서 지각(마시바시, 신내떡, 선다래, 또와또, 떡집)
+        if(collision.CompareTag("Restaurant")){
+            if(collision.gameObject.name == "Restaurant1")
+            {
+                restaurant_1 = true;
+                manager.talkText.text = "바시마시에 들어가시려면 z키를 눌러주세요.";
+            }
+            else if(collision.gameObject.name == "Restaurant2"){
+                restaurant_2 = true;
+                manager.talkText.text = "신네떡에 들어가시려면 z키를 눌러주세요.";
+                
+            }
+            else if(collision.gameObject.name == "Restaurant3"){
+                restaurant_3 = true;
+                manager.talkText.text = "선다레에 들어가시려면 z키를 눌러주세요.";
+            }
+            else if(collision.gameObject.name == "Restaurant4"){
+                restaurant_4 = true;
+                manager.talkText.text = "또가또에 들어가시려면 z키를 눌러주세요.";
+            }
+        }
+
+        //29. 보도블럭
+        //30. 사다리엔딩 (player이동 스크립트에 구현)
+        //31. 호수에 빠져서 사망 **생각
+        //32. ? 에 헤딩하고 엔딩
         else if(collision.gameObject.name == "Heading" || collision.gameObject.name == "Heading_b"){
             manager.talkText.text = "호기심 많은 [눈송]은 헤딩을 하고 머리에 상처가 나 병원에 가버렸다..!";
         }
