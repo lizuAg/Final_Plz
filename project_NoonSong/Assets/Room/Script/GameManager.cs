@@ -10,7 +10,12 @@ public class GameManager : MonoBehaviour
     public GameObject talkPanel;
     public GameObject scanObject;
     public bool isAction;
+    public bool isClicked;
     public int talkIndex;
+    public GameObject EndingImg;
+    public GameObject frame;
+    float timer;
+    public GameObject btn;
 
     public void Action(GameObject scanObj)
     {
@@ -20,7 +25,27 @@ public class GameManager : MonoBehaviour
 
         talkPanel.SetActive(isAction);
     }
-
+    public void Img()
+    {
+        timer += Time.deltaTime;
+        if(timer > 1)
+        {
+            frame.SetActive(true);
+            EndingImg.SetActive(true);
+            btn.SetActive(true);
+        }
+        if (isClicked)
+        {
+            frame.SetActive(false);
+            btn.SetActive(false);
+        }
+    }
+    public void SetBtn()
+    {
+        isClicked = true;
+        frame.SetActive(false);
+        btn.SetActive(false);
+    }
     void Talk(int id, bool isNpc)
     {
         string talkData = talkManager.GetTalk(id, talkIndex);
