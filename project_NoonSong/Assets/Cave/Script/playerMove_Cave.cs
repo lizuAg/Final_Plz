@@ -26,7 +26,7 @@ public class playerMove_Cave : MonoBehaviour
             Vector2 pos = gameObject.transform.position;
             pos.y += 0.5f;
             instance = Instantiate(missle_prefab, pos, Quaternion.identity) as GameObject;
-            instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 700);
+            instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 500);//미사일 속도조절
         }
 
         //Stop Speed

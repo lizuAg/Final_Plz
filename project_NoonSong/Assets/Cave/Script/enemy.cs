@@ -9,7 +9,7 @@ public class enemy : MonoBehaviour
 
     void Start()
     {
-        moveSpeed = Random.Range(3, 13);
+        moveSpeed = Random.Range(3, 8);
     }
     void Update()
     {
@@ -20,7 +20,7 @@ public class enemy : MonoBehaviour
         if (transform.position.y < -10)
         {
             Vector2 pos = gameObject.transform.position;
-            Instantiate(Enemy_prefab, new Vector2(pos.x, 18), Quaternion.identity);
+            Instantiate(Enemy_prefab, new Vector2(pos.x, 13), Quaternion.identity);
             Destroy(gameObject);
         }
     }

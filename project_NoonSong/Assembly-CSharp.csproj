@@ -60,6 +60,7 @@
      <Compile Include="Assets\Cave\Script\initScene.cs" />
      <Compile Include="Assets\Cave\Script\playerMove_Cave.cs" />
      <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\Room\Script\ButtonSc.cs" />
      <Compile Include="Assets\Room\Script\ObjectData.cs" />
      <Compile Include="Assets\Room\Script\PlayerMove_room.cs" />
      <Compile Include="Assets\Room\Script\Potal.cs" />
