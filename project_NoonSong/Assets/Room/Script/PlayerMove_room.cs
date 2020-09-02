@@ -12,10 +12,9 @@ public class PlayerMove_room : MonoBehaviour
     Animator anim;
     private int jumpCheck;
     private bool isOnbed;
-    float timer;
+    float timer = 0f;
     GameObject scanObject;
     public GameManager manager;
-    private float speed = 3f;
     public FadeOut fadeout;
     public GameObject frame;
 
@@ -130,18 +129,17 @@ public class PlayerMove_room : MonoBehaviour
         }
         else if (other.gameObject.name == "chairCollider")
         {
-            manager.talkText.text = "아래 방향키를 연타하세요 !";
+            manager.talkText.text = "앉으려면 아래 방향키를 누르세요.";
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
+                manager.talkPanel.SetActive(false);
                 anim.SetBool("isSitting", true);
                 timer += Time.deltaTime;
-                Debug.Log("앉은 시간 : " + timer);
                 if (timer > 0.3)
                 {
+                    EndingScene();
                     manager.talkText.text = "눈송이는 의자에 엉덩이가 붙어 학교에 지각했다..";
-                    transform.position = new Vector3(-15,0,0);
                     anim.SetBool("isSitting", false);
-                    timer = 0;
                 }
             }
         }
@@ -150,7 +148,6 @@ public class PlayerMove_room : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > 1)
             {
-                manager.talkPanel.SetActive(true);
                 manager.talkText.text = "사람이 너무 많은 곳으로 내리려다... 인파에 파묻혔다!!";
                 EndingScene();
             }
@@ -165,6 +162,8 @@ public class PlayerMove_room : MonoBehaviour
             fadeout.InFade();
             transform.position = new Vector3(-15, 0, 0);
             manager.talkPanel.SetActive(false);
+            timer = 0;
+            manager.isClicked = false;
         }
     }
 }

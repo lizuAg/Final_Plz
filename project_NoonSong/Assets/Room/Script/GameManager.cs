@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public int talkIndex;
     public GameObject EndingImg;
     public GameObject frame;
-    float timer;
+    float timer = 0f;
     public GameObject btn;
 
     public void Action(GameObject scanObj)
@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour
     public void Img()
     {
         timer += Time.deltaTime;
-        if(timer > 1)
+        if (timer > 1)
         {
+            talkPanel.SetActive(true);
             frame.SetActive(true);
             EndingImg.SetActive(true);
             btn.SetActive(true);

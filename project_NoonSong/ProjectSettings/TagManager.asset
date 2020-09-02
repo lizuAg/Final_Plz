@@ -6,6 +6,7 @@ TagManager:
   tags:
   - door
   - Chair
+  - Ground
   layers:
   - Default
   - TransparentFX

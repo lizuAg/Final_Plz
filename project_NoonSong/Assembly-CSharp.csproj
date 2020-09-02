@@ -56,12 +56,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Potal.cs" />
+     <Compile Include="Assets\Room\Script\Bubble.cs" />
+     <Compile Include="Assets\Room\Script\BubblePlayerMove.cs" />
      <Compile Include="Assets\Room\Script\ChangeImg.cs" />
      <Compile Include="Assets\Room\Script\FadeOut.cs" />
      <Compile Include="Assets\Room\Script\GameManager.cs" />
+     <Compile Include="Assets\Room\Script\GameManager2.cs" />
      <Compile Include="Assets\Room\Script\ObjData.cs" />
      <Compile Include="Assets\Room\Script\PlayerMove_room.cs" />
      <Compile Include="Assets\Room\Script\TalkManager.cs" />
+     <Compile Include="Assets\bubbleState.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/leese/Documents/GitHub/Final_Plz/project_NoonSong/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
