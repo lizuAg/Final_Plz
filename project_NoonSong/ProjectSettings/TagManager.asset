@@ -10,6 +10,7 @@ TagManager:
   - Coin
   - Bread
   - Restaurant
+  - Virus
   layers:
   - Default
   - TransparentFX

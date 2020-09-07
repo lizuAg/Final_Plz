@@ -9,7 +9,7 @@ public class Ending_School : MonoBehaviour
     public GameManager manager;
     
     //엔딩관련 변수
-    bool bus,elev,bubbletea, restaurant_1, restaurant_2, restaurant_3, restaurant_4;
+    bool bus,elev,bubbletea, restaurant_1, restaurant_2, restaurant_3, restaurant_4, class_1, class_2, class_3;
     bool kickboard,box_cat,teampler,bateacher, box_elev;
 
     public int restaurant_count=0;
@@ -69,6 +69,15 @@ public class Ending_School : MonoBehaviour
             box_elev = false;
         }
 
+        //9. 교수가 먼저 도착
+        else if(class_3 && Input.GetKeyDown(KeyCode.Z)){
+            manager.talkText.text = "엔딩) [눈송]은 가까스로 교실에 도착하는 듯 했으나, 문 밖에서 미리 강의실에 와 강의를 하는 교수님을 보고 말았다! 출석체크는 이미 지나가버렸다! ";
+        }
+
+        //14. 휴강
+        else if(class_1 && Input.GetKeyDown(KeyCode.Z)){
+            manager.talkText.text = "엔딩) 오늘은 휴강! [눈송]은 독강러!";
+        }
         
 
         //16. 킥보드 획득
@@ -95,6 +104,11 @@ public class Ending_School : MonoBehaviour
                 manager.talkText.text = "고양이 간식 아이템을 획득하였습니다.";
             }
             box_cat = false;
+        }
+
+        //19. 스숙오류
+        else if(class_2 && Input.GetKeyDown(KeyCode.Z)){
+            manager.talkText.text = "엔딩) [눈송]은 가까스로 교실에 도착했으나, 전자출결 오류가 발생했다! 교수님께 말씀드렸으나, 증거가 없다는 이유로 결국 결석 처리가 되고 말았다...";
         }
 
         //22. 바선생약 획득
@@ -186,9 +200,15 @@ public class Ending_School : MonoBehaviour
             manager.talkText.text = "상자를 열려면 z키를 누르세요.";
         }
 
+        //6. 친구만나 자체휴강
 
         //7. 까먹은 준비물 엔딩 **조금 더 생각
         //8. 비둘기 monster
+        //9. 교수가 먼저 도착 엔딩
+        else if(collision.gameObject.name == "Class3"){
+            class_3 = true;
+        }
+
         //10. 부자 엔딩 (player이동 스크립트에 구현)
         //11. 입구역 엔딩 (x)
         //12. 배탈엔딩 (player이동 스크립트에 구현)
@@ -196,7 +216,11 @@ public class Ending_School : MonoBehaviour
         
         //13-2. 계단엔딩
 
-        //14. 휴강
+        //14. 휴강 - 교실
+        else if(collision.gameObject.name == "Class1"){
+            class_1 = true;
+        }
+        
 
         //16. 상자 - 킥보드 발견
         else if(collision.gameObject.name == "Box_Kickboards"){
@@ -222,9 +246,14 @@ public class Ending_School : MonoBehaviour
             manager.talkText.text = "상자를 열려면 z키를 누르세요.";
         }
         // 고양이 배치
-        
-        //18. 코로나
-        //19. 전자출결
+    
+        //18. 코로나 엔딩 - 동굴 미니게임
+        //18-2. 코로나 바이러스 엔딩 - OnCollisionEnter에 구현
+        //19. 전자출결 - 교실
+        else if(collision.gameObject.name == "Class2"){
+            class_2 = true;
+        }
+
 
         //20. 물웅덩이 (트랩)
         else if(collision.gameObject.name == "Rain"){
@@ -289,11 +318,17 @@ public class Ending_School : MonoBehaviour
         }
 
         //29. 보도블럭
+
         //30. 사다리엔딩 (player이동 스크립트에 구현)
         //31. 호수에 빠져서 사망 **생각
         //32. ? 에 헤딩하고 엔딩
         else if(collision.gameObject.name == "Heading" || collision.gameObject.name == "Heading_b"){
             manager.talkText.text = "호기심 많은 [눈송]은 헤딩을 하고 머리에 상처가 나 병원에 가버렸다..!";
+        }
+
+        //class enter 할건지 말건지 물어보는 - Classentercollider
+        else if(collision.gameObject.name == "Classentercollider"){
+            manager.talkText.text = "교실에 들어가려면 z키를 누르세요.";
         }
 
     }
@@ -316,6 +351,21 @@ public class Ending_School : MonoBehaviour
             manager.talkText.text = "강의실에 가는 방법은 엘레베이터 뿐인데?!";
         }
 
+        //9. 교수가 먼저 도착
+        else if(collision.gameObject.name == "Class3"){
+            class_3 = false;
+        }
+
+        //14. 휴강 - 교실
+        else if(collision.gameObject.name == "Class1"){
+            class_1 = false;
+        }
+
+        //19. 전자출결 - 교실
+        else if(collision.gameObject.name == "Class2"){
+            class_2 = false;
+        }
+
         //26. 버블티 가게 엔딩
         else if(collision.gameObject.name == "Bubbletea"){
             manager.talkText.text = "카페인 안먹으면 분명 강의듣다 졸텐데..";
@@ -323,4 +373,11 @@ public class Ending_School : MonoBehaviour
 
         
     }
+/*
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag == "Virus"){
+            manager.talkText.text = "엔딩) 코로나 바이러스 출몰!!!! 사회적 거리두기!!!!";
+        }
+    }*/
+    
 }
