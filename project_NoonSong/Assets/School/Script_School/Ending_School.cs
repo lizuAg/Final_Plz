@@ -9,7 +9,7 @@ public class Ending_School : MonoBehaviour
     public GameManager manager;
     
     //엔딩관련 변수
-    bool bus,elev,bubbletea, restaurant_1, restaurant_2, restaurant_3, restaurant_4, class_1, class_2, class_3;
+    bool bus,elev,bubbletea, restaurant_1, restaurant_2, restaurant_3, restaurant_4, class_1, class_2, class_3,cat_tag;
     bool kickboard,box_cat,teampler,bateacher, box_elev;
 
     public int restaurant_count=0;
@@ -19,6 +19,8 @@ public class Ending_School : MonoBehaviour
     
     bool item_tag; //현재 태그 상태 체크 = 태그됨 :true, 태그안됨: false
     int random;
+
+    
 
    
 
@@ -104,6 +106,17 @@ public class Ending_School : MonoBehaviour
                 manager.talkText.text = "고양이 간식 아이템을 획득하였습니다.";
             }
             box_cat = false;
+        }
+
+        //고양이
+        else if(cat_tag && Input.GetKeyDown(KeyCode.Z)){
+            if(item_cat){
+                manager.talkText.text = "엔딩) 교수님보다는 고양이가 훨씬 더 귀여웠다!! 고양이랑 놀다가 지각!";
+            }
+            else{
+                manager.talkText.text = "간식줘~! 3층정도 가면 찾을 수 있을거야.";
+            }
+            cat_tag = false;
         }
 
         //19. 스숙오류
@@ -203,7 +216,7 @@ public class Ending_School : MonoBehaviour
         //6. 친구만나 자체휴강
 
         //7. 까먹은 준비물 엔딩 **조금 더 생각
-        //8. 비둘기 monster
+        //8. 비둘기 monster - OncollisionEnter구현
         //9. 교수가 먼저 도착 엔딩
         else if(collision.gameObject.name == "Class3"){
             class_3 = true;
@@ -216,12 +229,13 @@ public class Ending_School : MonoBehaviour
         
         //13-2. 계단엔딩
 
+
         //14. 휴강 - 교실
         else if(collision.gameObject.name == "Class1"){
             class_1 = true;
         }
         
-
+        //15. 고민..
         //16. 상자 - 킥보드 발견
         else if(collision.gameObject.name == "Box_Kickboards"){
             kickboard = true;
@@ -246,9 +260,14 @@ public class Ending_School : MonoBehaviour
             manager.talkText.text = "상자를 열려면 z키를 누르세요.";
         }
         // 고양이 배치
+        else if(collision.gameObject.name == "Cat"){
+            cat_tag = true;
+            manager.talkText.text = "고양이에게 말을 걸려면 z키를 누르세요.";
+        }
     
         //18. 코로나 엔딩 - 동굴 미니게임
         //18-2. 코로나 바이러스 엔딩 - OnCollisionEnter에 구현
+
         //19. 전자출결 - 교실
         else if(collision.gameObject.name == "Class2"){
             class_2 = true;
@@ -321,6 +340,7 @@ public class Ending_School : MonoBehaviour
 
         //30. 사다리엔딩 (player이동 스크립트에 구현)
         //31. 호수에 빠져서 사망 **생각
+
         //32. ? 에 헤딩하고 엔딩
         else if(collision.gameObject.name == "Heading" || collision.gameObject.name == "Heading_b"){
             manager.talkText.text = "호기심 많은 [눈송]은 헤딩을 하고 머리에 상처가 나 병원에 가버렸다..!";
@@ -360,6 +380,10 @@ public class Ending_School : MonoBehaviour
         else if(collision.gameObject.name == "Class1"){
             class_1 = false;
         }
+        // 고양이 배치
+        else if(collision.gameObject.name == "Cat"){
+            cat_tag = false;
+        }
 
         //19. 전자출결 - 교실
         else if(collision.gameObject.name == "Class2"){
@@ -373,11 +397,21 @@ public class Ending_School : MonoBehaviour
 
         
     }
-/*
+
     private void OnCollisionEnter2D(Collision2D collision){
+        
+        //8. 비둘기 엔딩
+        if(collision.gameObject.tag == "Bird"){
+            manager.talkText.text = "엔딩) 비둘기의 공격!! 꺅! 비둘기야....! [눈송]은 까무라치고 말았다..";
+        }
+
+
+        //18. 코로나 바이러스 몬스터
         if(collision.gameObject.tag == "Virus"){
             manager.talkText.text = "엔딩) 코로나 바이러스 출몰!!!! 사회적 거리두기!!!!";
         }
-    }*/
+
+
+    }
     
 }

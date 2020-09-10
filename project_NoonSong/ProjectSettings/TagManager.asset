@@ -11,6 +11,7 @@ TagManager:
   - Bread
   - Restaurant
   - Virus
+  - Bird
   layers:
   - Default
   - TransparentFX
