@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove_room : MonoBehaviour
 {
@@ -9,14 +10,14 @@ public class PlayerMove_room : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
-
     private int jumpCheck;
     private bool isOnbed;
-
     float timer;
-
-    public GameManager manager;
     GameObject scanObject;
+    public GameManager manager;
+    private float speed = 3f;
+    public FadeOut fadeout;
+    public GameObject frame;
 
     void Awake()
     {
@@ -34,12 +35,11 @@ public class PlayerMove_room : MonoBehaviour
             //침대에서 점프
             if (isOnbed)
             {
-                rigid.AddForce(new Vector2(0, 2), ForceMode2D.Impulse);
                 Debug.Log("침대에서 점프횟수: " + (++jumpCheck));
                 if (jumpCheck ==5)
                 {
-                    rigid.AddForce(new Vector2 (3,10), ForceMode2D.Impulse);
-                    Debug.Log("침대점프엔딩!~~!~~!");
+                    rigid.AddForce(new Vector2 (3,8), ForceMode2D.Impulse);
+                    manager.talkText.text = "탄력적인 침대는 [눈송]을 천장을 뚫고 날려버렸다~~!";
                 }
             }
         }
@@ -50,19 +50,12 @@ public class PlayerMove_room : MonoBehaviour
         }
         //Direction Sprite 방향전환
         if (Input.GetButton("Horizontal"))
-        {
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
-        }
         //Animation
         if (Mathf.Abs(rigid.velocity.x) < 0.3) //절댓값이 0.3보다 작으면(멈추면)
             anim.SetBool("isWalking", false);
         else
             anim.SetBool("isWalking", true);
-        //ScanObject
-        if (Input.GetKeyUp(KeyCode.UpArrow) && scanObject != null)
-        {
-            manager.Action(scanObject);
-        }
     }
     void FixedUpdate()
     {
@@ -91,23 +84,22 @@ public class PlayerMove_room : MonoBehaviour
             }
         }
 
-        //Ray-dialogue
-        Debug.DrawRay(rigid.position-new Vector2(1,0), new Vector2(2, 0), new Color(0, 0, 1));
-        RaycastHit2D rayHitD = Physics2D.Raycast(rigid.position - new Vector2(1, 0), new Vector2(2, 0), 1.5f, LayerMask.GetMask("Object"));
-        if (rayHitD.collider != null)
+        Debug.DrawRay(rigid.position, Vector3.right * (1), new Color(0, 1, 0));
+        RaycastHit2D rayHit2 = Physics2D.Raycast(rigid.position, Vector3.right, 1, LayerMask.GetMask("Object"));
+        if (rayHit2.collider != null) //스캔한 오브젝트 저장
         {
-            scanObject = rayHitD.collider.gameObject;
+            scanObject = rayHit2.collider.gameObject;
         }
-        else
+
+        if (Input.GetKeyDown(KeyCode.Z) && scanObject != null) //오브젝트 스캔
         {
+            manager.Action(scanObject);
             scanObject = null;
         }
-
-
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "bedCheck")//침대위 in
+        if (other.gameObject.name == "bedCheck")
         {
             Debug.Log("Enter");
             isOnbed = true;
@@ -119,7 +111,7 @@ public class PlayerMove_room : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "bedCheck")//침대위 out
+        if (other.gameObject.name == "bedCheck")
         {
             Debug.Log("Exit");
             isOnbed = false;
@@ -130,21 +122,23 @@ public class PlayerMove_room : MonoBehaviour
     {
         if (other.gameObject.name == "com")
         {
-            Debug.Log("윗방향키를 눌러주세요.");
-            if (Input.GetKeyUp(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Debug.Log("컴퓨터엔딩~!~!~!");
+                manager.talkText.text = "눈송은 컴퓨터의 유혹에 빠져...학교에 늦어버렸다!!";
+                manager.isAction = false;
             }
         }
         else if (other.gameObject.name == "chairCollider")
         {
-            timer += Time.deltaTime;
+            manager.talkText.text = "아래 방향키를 연타하세요 !";
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 anim.SetBool("isSitting", true);
-                if (timer > 3)
+                timer += Time.deltaTime;
+                Debug.Log("앉은 시간 : " + timer);
+                if (timer > 0.3)
                 {
-                    Debug.Log("의자엔딩~!~!");
+                    manager.talkText.text = "눈송이는 의자에 엉덩이가 붙어 학교에 지각했다..";
                     transform.position = new Vector3(-15,0,0);
                     anim.SetBool("isSitting", false);
                     timer = 0;
@@ -154,8 +148,23 @@ public class PlayerMove_room : MonoBehaviour
         else if(other.gameObject.name == "frontdoor")
         {
             timer += Time.deltaTime;
-            if(timer>1)
-                Debug.Log("사람이 너무 많습니다.");
+            if (timer > 1)
+            {
+                manager.talkPanel.SetActive(true);
+                manager.talkText.text = "사람이 너무 많은 곳으로 내리려다... 인파에 파묻혔다!!";
+                EndingScene();
+            }
+        }
+    }
+    void EndingScene()
+    {
+        fadeout.OutFade();
+        manager.Img();
+        if (manager.isClicked == true)
+        {
+            fadeout.InFade();
+            transform.position = new Vector3(-15, 0, 0);
+            manager.talkPanel.SetActive(false);
         }
     }
 }
