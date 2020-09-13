@@ -9,6 +9,7 @@ public class BubblePlayerMove : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
+    public MakeBubble manager;
 
     void Awake()
     {
@@ -37,6 +38,13 @@ public class BubblePlayerMove : MonoBehaviour
             anim.SetBool("isWalking", false);
         else
             anim.SetBool("isWalking", true);
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "bubble")
+        {
+            manager.Score();
+        }
     }
     void FixedUpdate()
     {
