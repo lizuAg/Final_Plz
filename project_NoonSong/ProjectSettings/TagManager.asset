@@ -6,8 +6,12 @@ TagManager:
   tags:
   - door
   - Chair
-  - Ground
-  - bubble
+  - Ladders
+  - Coin
+  - Bread
+  - Restaurant
+  - Virus
+  - Bird
   layers:
   - Default
   - TransparentFX
@@ -19,7 +23,7 @@ TagManager:
   - 
   - Platform
   - Object
-  - 
+  - Player
   - 
   - 
   - 
