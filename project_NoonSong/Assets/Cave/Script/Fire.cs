@@ -22,6 +22,7 @@ public class Fire : MonoBehaviour
         {
             Vector2 pos = other.gameObject.transform.position;
             Destroy(other.gameObject);
+            initScene.batNum++;
             Instantiate(enemy_prefab, new Vector2(pos.x, 20), Quaternion.identity);
             Destroy(gameObject);
         }

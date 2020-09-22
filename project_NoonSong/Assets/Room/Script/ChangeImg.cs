@@ -5,11 +5,19 @@ using UnityEngine.UI;
 
 public class ChangeImg : MonoBehaviour
 {
-    public Image FirstImg;
-    public Sprite ChangeSprite;
+    public Sprite 지하철의자;
+    public Sprite 지하철인파;
+    public PlayerMove_room Game;
 
-    public void Change()
+    public void Change(int EndingNumber)
     {
-        FirstImg.sprite = ChangeSprite;
+        if (EndingNumber == 5)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = 지하철인파;
+        }
+        else if (EndingNumber == 6)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = 지하철의자;
+        }
     }
 }
