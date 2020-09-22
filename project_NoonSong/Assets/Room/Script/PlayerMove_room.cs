@@ -17,6 +17,8 @@ public class PlayerMove_room : MonoBehaviour
     public GameManager manager;
     public FadeOut fadeout;
     public GameObject frame;
+    bool isLadder;
+    float speed = 3f;
 
     public int count_coin=0, count_bread=0;
     bool ending_coin = false; //코인 부자 엔딩(10) 한번만 실행
