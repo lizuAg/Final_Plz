@@ -9,7 +9,7 @@ public class initScene : MonoBehaviour
     public Text batText;
     public Text timeText;
     public static int batNum=0;
-    public int time;
+    public float timer;
 
     void Awake()
     {
@@ -21,11 +21,21 @@ public class initScene : MonoBehaviour
     void Start()
     {
         batText.text = "잡은 박쥐 수: " + batNum + "/30";//숫자는 조정.
-        timeText.text = "남은 시간: " + time;
+        timeText.text = "남은 시간: " + 30+" 초";
     }
     void FixedUpdate()
     {
         batText.text = "잡은 박쥐 수: " + batNum + "/30";//숫자는 조정.
-        timeText.text = "남은 시간: " + time;
+        timeText.text = "남은 시간: " + (30-(int)timer)+" 초";
+    }
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > 30)
+        {
+            if (batNum > 50)
+                Debug.Log("박쥐를 물리치고 동굴을 탈출했다!");
+            Debug.Log("흠... 어떻게 해야하지~");
+        }
     }
 }

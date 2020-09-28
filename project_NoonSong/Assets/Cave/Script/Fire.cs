@@ -10,7 +10,8 @@ public class Fire : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y > 20)
+        //멀리 나간 총알회수.
+        if (transform.position.y > 7)
         {
             Destroy(gameObject);
         }

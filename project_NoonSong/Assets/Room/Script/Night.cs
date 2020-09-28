@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Night : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject NightPanel;
+    private bool isNight = false;
+    private float timer;
     void Start()
     {
-        
+        if (Random.Range(1, 10) == 1)
+            isNight = true;
+        NightPanel.SetActive(isNight);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (isNight&&timer>3)
+        {
+            Debug.Log("늦잠자서 지각엔딩... ㅎㅎ...");
+        }
+
     }
 }

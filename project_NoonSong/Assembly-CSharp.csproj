@@ -63,6 +63,7 @@
      <Compile Include="Assets\Room\Script\BubblePlayerMove.cs" />
      <Compile Include="Assets\Room\Script\ButtonSc.cs" />
      <Compile Include="Assets\Room\Script\ChangeImg.cs" />
+     <Compile Include="Assets\Room\Script\EndingManager.cs" />
      <Compile Include="Assets\Room\Script\FadeOut.cs" />
      <Compile Include="Assets\Room\Script\GameManager.cs" />
      <Compile Include="Assets\Room\Script\MakeBubble.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\Room\Script\PlayerMove_room.cs" />
      <Compile Include="Assets\Room\Script\Potal.cs" />
      <Compile Include="Assets\Room\Script\TalkManager.cs" />
+     <Compile Include="Assets\Room\Script\chgImg.cs" />
      <Compile Include="Assets\bubbleState.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

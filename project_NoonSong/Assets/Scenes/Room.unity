@@ -419,6 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170702490}
   - component: {fileID: 170702489}
+  - component: {fileID: 170702491}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -443,7 +444,11 @@ MonoBehaviour:
   talkPanel: {fileID: 1874833710}
   scanObject: {fileID: 0}
   isAction: 0
+  isClicked: 0
   talkIndex: 0
+  EndingImg: {fileID: 0}
+  frame: {fileID: 0}
+  btn: {fileID: 0}
 --- !u!4 &170702490
 Transform:
   m_ObjectHideFlags: 0
@@ -458,6 +463,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170702491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170702488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee95e72ed49ca9d4faf0527d314fb481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NightPanel: {fileID: 1737273385}
 --- !u!1 &463946717
 GameObject:
   m_ObjectHideFlags: 0
@@ -6397,6 +6415,8 @@ MonoBehaviour:
   jumpPower: 10
   maxSpeed: 5
   manager: {fileID: 170702489}
+  fadeout: {fileID: 0}
+  frame: {fileID: 0}
 --- !u!95 &2021428720
 Animator:
   serializedVersion: 3
