@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerMove_room : MonoBehaviour
 {
@@ -12,12 +11,17 @@ public class PlayerMove_room : MonoBehaviour
     Animator anim;
     private int jumpCheck;
     private bool isOnbed;
-    float timer = 0f;
+    float timer;
     GameObject scanObject;
     public GameManager manager;
-    public GameObject frame;
-    public Fadein Fade;
-    public ChangeImg ChangeImage;
+    private float speed = 3f;
+
+    public int count_coin=0, count_bread=0;
+    bool ending_coin = false; //코인 부자 엔딩(10) 한번만 실행
+    bool item_bread = false;
+    
+    public float ending_laddertime = 0; //사다리 30초 엔딩
+    bool breadbox, coinbox; //대학가 빵상자, 코인상자 open
 
     void Awake()
     {
@@ -28,7 +32,7 @@ public class PlayerMove_room : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
+        if (manager.isAction ? false : Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
@@ -44,23 +48,59 @@ public class PlayerMove_room : MonoBehaviour
             }
         }
         //Stop Speed
-        if (Input.GetButtonUp("Horizontal"))
+        if (manager.isAction ? false : Input.GetButtonUp("Horizontal"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
         //Direction Sprite 방향전환
-        if (Input.GetButton("Horizontal"))
+        if (manager.isAction ? false :Input.GetButton("Horizontal"))
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
         //Animation
         if (Mathf.Abs(rigid.velocity.x) < 0.3) //절댓값이 0.3보다 작으면(멈추면)
             anim.SetBool("isWalking", false);
         else
             anim.SetBool("isWalking", true);
+
+        //빵상자
+        if(breadbox && Input.GetKeyDown("KeyCode.Z"))
+        {
+            if(item_bread)
+            {
+                manager.talkText.text = "이미 획득한 상자입니다.";   
+            }
+            else
+            {
+                count_bread += 4;
+                manager.talkText.text = "빵 4개를 획득하였습니다!";
+            }
+            
+            breadbox = false;
+        }
+
+        //12, 빵엔딩
+        if(count_bread == 10)
+        {
+            manager.talkText.text = "등교길에 빵 10개를 먹는 것은 급성 배탈을 유발한다. 이대로라면 [눈송]은 수업 중에 빵귀를 10번 뀔 것이다. 어쩔 수 없이 병원을 가야겠다.!";
+        }
+
+        //29.사다리 시간 엔딩
+        if(isLadder){
+            ending_laddertime += Time.deltaTime;
+            
+            if(ending_laddertime >= 30){
+                manager.talkText.text = "엔딩) [눈송]은 사다리에 매달려있다가 힘이 모두 빠져버렸다! 눈송은 힘이빠져 제시간에 학교에 가지 못했다!";
+            }
+            if(!isLadder){
+                ending_laddertime = 0; //사다리에서 떨어지면 초기화
+            }
+        }
+
+
     }
     void FixedUpdate()
     {
         //Move By Key Control
-        float h = Input.GetAxisRaw("Horizontal");
+        float h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
 
         rigid.AddForce(Vector2.right * h * 2, ForceMode2D.Impulse);
 
@@ -96,7 +136,23 @@ public class PlayerMove_room : MonoBehaviour
             manager.Action(scanObject);
             scanObject = null;
         }
+        //대학가 사다리
+        if(isLadder){
+            float ver = Input.GetAxis("Vertical");
+            rigid.gravityScale = 0;
+            rigid.velocity = new Vector2(rigid.velocity.x, ver*speed);
+            anim.SetBool("isUp",true);
+            //stop speed = 0 필요?
+            
+        }
+        else{
+            rigid.gravityScale = 4f;
+        }
+
+
     }
+
+    public bool isLadder;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "bedCheck")
@@ -108,6 +164,40 @@ public class PlayerMove_room : MonoBehaviour
         {
             transform.Translate(22, 0, 0);
         }
+
+        //대학가 사다리 접촉 체크
+        if(other.CompareTag("Ladders")){
+            isLadder = true;
+        }
+
+        //coin,아이템
+        if(other.gameObject.tag == "Coin"){
+            //포인트
+            count_coin = count_coin + 1;
+            // Deactive item
+            other.gameObject.SetActive(false);
+
+            //10. 부자엔딩
+            if(count_coin >= 15 && !ending_coin)
+            {
+                manager.talkText.text = "엔딩)[눈송]은 부자가 되었다! 이제 학교에 다니지 않을것이다! 자퇴!";
+                ending_coin = true;
+            }
+        }
+        if(other.gameObject.tag == "Bread"){
+            //포인트
+            count_bread = count_bread + 1;
+            // Deactive item
+            other.gameObject.SetActive(false);
+
+            
+
+
+        }
+        else if(other.gameObject.tag == "Box_Bread"){
+            breadbox = true;
+            manager.talkText.text = "상자를 열려면 z키를 누르세요.";
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
@@ -116,6 +206,12 @@ public class PlayerMove_room : MonoBehaviour
             Debug.Log("Exit");
             isOnbed = false;
             jumpCheck = 0;
+        }
+
+        //대학가 사다리 접촉 체크
+        if(other.CompareTag("Ladders")){
+            isLadder = false;
+            anim.SetBool("isUp",false);
         }
     }
     void OnTriggerStay2D(Collider2D other)
@@ -130,36 +226,26 @@ public class PlayerMove_room : MonoBehaviour
         }
         else if (other.gameObject.name == "chairCollider")
         {
+            manager.talkText.text = "아래 방향키를 연타하세요 !";
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                timer += Time.deltaTime;
                 anim.SetBool("isSitting", true);
+                timer += Time.deltaTime;
+                Debug.Log("앉은 시간 : " + timer);
                 if (timer > 0.3)
                 {
-                    ChangeImage.EndingNumber = 5;
-                    ChangeImage.Change();
-                    EndingScene();
                     manager.talkText.text = "눈송이는 의자에 엉덩이가 붙어 학교에 지각했다..";
+                    transform.position = new Vector3(-15,0,0);
                     anim.SetBool("isSitting", false);
+                    timer = 0;
                 }
             }
         }
         else if(other.gameObject.name == "frontdoor")
         {
             timer += Time.deltaTime;
-            if (timer > 1)
-            {
-                ChangeImage.EndingNumber = 6;
-                ChangeImage.Change();
-                manager.talkText.text = "사람이 너무 많은 곳으로 내리려다... 인파에 파묻혔다!!";
-                EndingScene();
-            }
+            if(timer>1)
+                Debug.Log("사람이 너무 많습니다.");
         }
-    }
-    void EndingScene()
-    {
-       manager.Img();
-       transform.position = new Vector3(-15, 0, 0);
-       Fade.fade.gameObject.SetActive(false);
     }
 }
