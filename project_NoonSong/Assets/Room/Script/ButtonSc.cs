@@ -47,4 +47,14 @@ public class ButtonSc : MonoBehaviour
         activeHowto = !activeHowto;
         HowtoPanel.SetActive(activeHowto);
     }
+    //뒤로가기
+    public void ClickedBack()
+    {
+        if (activeAlbum)
+            OnAlbumButton();
+        else if (activeCredit)
+            OnCredit();
+        else if (activeHowto)
+            OnHowtoButton();
+    }
 }

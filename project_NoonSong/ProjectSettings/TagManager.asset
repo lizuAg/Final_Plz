@@ -6,6 +6,9 @@ TagManager:
   tags:
   - bubble
   - Enemy
+  - Chair
+  - door
+  - Platform
   layers:
   - Default
   - TransparentFX

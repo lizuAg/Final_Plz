@@ -17,6 +17,14 @@ public class GameManager : MonoBehaviour
     float timer = 0f;
     public GameObject btn;
 
+    void Awake()
+    {
+        //EndArray 초기화 <-근데 씬 바뀌어도 적용되는지는 실험해봐야함ㅜ
+        for(int i = 0; i < 50; i++)
+        {
+            EndArray.setEndingArray(i, false);
+        }
+    }
     public void Action(GameObject scanObj)
     {
         scanObject = scanObj;
