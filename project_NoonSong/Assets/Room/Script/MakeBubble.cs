@@ -26,7 +26,11 @@ public class MakeBubble : MonoBehaviour
     public void Score()
     {
         score++;
+<<<<<<< Updated upstream
         scoreText.text = "획득 버블 " + score +"개";
+=======
+        scoreText.text = "획득 버블 " + score +"개" + " / 30개";
+>>>>>>> Stashed changes
     }
     private void CreateBubble()
     {
