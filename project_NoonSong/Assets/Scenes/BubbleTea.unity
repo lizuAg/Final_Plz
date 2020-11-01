@@ -820,7 +820,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 90, y: -14}
+<<<<<<< Updated upstream
   m_SizeDelta: {x: 160, y: 30}
+=======
+  m_SizeDelta: {x: 210.07156, y: 30.788696}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &533927064
 MonoBehaviour:
@@ -854,7 +858,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< Updated upstream
   m_Text: "\uD68D\uB4DD \uBC84\uBE14  0\uAC1C "
+=======
+  m_Text: "\uD68D\uB4DD \uBC84\uBE14  0\uAC1C / 30\uAC1C"
+>>>>>>> Stashed changes
 --- !u!222 &533927065
 CanvasRenderer:
   m_ObjectHideFlags: 0

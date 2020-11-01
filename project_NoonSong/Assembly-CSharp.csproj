@@ -55,6 +55,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+     <Compile Include="Assets\Cave\Script\Fire.cs" />
+     <Compile Include="Assets\Cave\Script\enemy.cs" />
+     <Compile Include="Assets\Cave\Script\initScene.cs" />
+     <Compile Include="Assets\Cave\Script\playerMove_Cave.cs" />
+>>>>>>> Stashed changes
      <Compile Include="Assets\Potal.cs" />
      <Compile Include="Assets\Room\Script\Bubble.cs" />
      <Compile Include="Assets\Room\Script\BubblePlayerMove.cs" />
@@ -63,9 +70,43 @@
      <Compile Include="Assets\Room\Script\GameManager.cs" />
      <Compile Include="Assets\Room\Script\MakeBubble.cs" />
      <Compile Include="Assets\Room\Script\ObjData.cs" />
+<<<<<<< Updated upstream
      <Compile Include="Assets\Room\Script\PlayerMove_room.cs" />
      <Compile Include="Assets\Room\Script\TalkManager.cs" />
      <Compile Include="Assets\bubbleState.cs" />
+=======
+     <Compile Include="Assets\Room\Script\PlatformIgnore.cs" />
+     <Compile Include="Assets\Room\Script\PlayerMove_room.cs" />
+     <Compile Include="Assets\Room\Script\TalkManager.cs" />
+     <Compile Include="Assets\School\Script_School\Ending_School.cs" />
+     <Compile Include="Assets\School\Script_School\MonsterSchool.cs" />
+     <Compile Include="Assets\School\Script_School\MoveCamera.cs" />
+     <Compile Include="Assets\Scripts\BtnType.cs" />
+     <Compile Include="Assets\Scripts\MainUI.cs" />
+     <Compile Include="Assets\Scripts\MiniCamera.cs" />
+     <Compile Include="Assets\Scripts\MiniPlayerMove.cs" />
+     <Compile Include="Assets\Scripts\MiniTeacherMoves.cs" />
+     <Compile Include="Assets\bubbleState.cs" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\platformergraphics-buildings\license.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+>>>>>>> Stashed changes
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/leese/Documents/GitHub/Final_Plz/project_NoonSong/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
