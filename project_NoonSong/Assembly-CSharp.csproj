@@ -59,7 +59,7 @@
      <Compile Include="Assets\Room\Script\Bubble.cs" />
      <Compile Include="Assets\Room\Script\BubblePlayerMove.cs" />
      <Compile Include="Assets\Room\Script\ChangeImg.cs" />
-     <Compile Include="Assets\Room\Script\Fadein.cs" />
+     <Compile Include="Assets\Room\Script\FadeOut.cs" />
      <Compile Include="Assets\Room\Script\GameManager.cs" />
      <Compile Include="Assets\Room\Script\MakeBubble.cs" />
      <Compile Include="Assets\Room\Script\ObjData.cs" />
