@@ -15,11 +15,9 @@ public class PlayerMove_room : MonoBehaviour
     float timer = 0f;
     GameObject scanObject;
     public GameManager manager;
-<<<<<<< Updated upstream
     public GameObject frame;
-=======
->>>>>>> Stashed changes
     public Fadein Fade;
+       public FadeOut fadeout;
     public ChangeImg ChangeImage;
 
     void Awake()
@@ -27,7 +25,9 @@ public class PlayerMove_room : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
     }
+    
     void Update()
     {
         //Jump
@@ -135,11 +135,7 @@ public class PlayerMove_room : MonoBehaviour
         }
         else if (other.gameObject.name == "chairCollider")
         {
-<<<<<<< Updated upstream
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-=======
             if (Input.GetKey(KeyCode.DownArrow))
->>>>>>> Stashed changes
             {
                 timer += Time.deltaTime;
                 anim.SetBool("isSitting", true);
@@ -188,14 +184,16 @@ public class PlayerMove_room : MonoBehaviour
     }
     public void EndingScene()
     {
-       manager.Img();
-       transform.position = new Vector3(-15, 0, 0);
-       Fade.fade.gameObject.SetActive(false);
+        fadeout.OutFade();
+        manager.Img();
+        if (manager.isClicked == true)
+        {
+            fadeout.InFade();
+            transform.position = new Vector3(-15, 0, 0);
+            manager.talkPanel.SetActive(false);
+            timer = 0;
+            manager.isClicked = false;
+        }
     }
-    void EndingScene()
-    {
-       manager.Img();
-       transform.position = new Vector3(-15, 0, 0);
-       Fade.fade.gameObject.SetActive(false);
-    }
+
 }

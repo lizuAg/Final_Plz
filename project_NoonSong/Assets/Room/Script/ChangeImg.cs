@@ -8,10 +8,7 @@ public class ChangeImg : MonoBehaviour
     public int EndingNumber=0;
     public Sprite 지하철의자;
     public Sprite 지하철인파;
-<<<<<<< Updated upstream
-=======
     public Sprite 지하철꼰대;
->>>>>>> Stashed changes
     public Sprite 교수;
     public Sprite 교통사고;
     public Sprite 바나나;
@@ -26,15 +23,6 @@ public class ChangeImg : MonoBehaviour
     public Sprite 푸들;
     public Sprite 피시방;
     public Sprite 휴강;
-<<<<<<< Updated upstream
-
-    public void Change()
-    {
-        if(EndingNumber == 5)
-            gameObject.GetComponent<Image>().sprite = 지하철의자;
-        else if(EndingNumber == 6)
-            gameObject.GetComponent<Image>().sprite = 지하철인파;
-=======
     public Sprite 버블티;
     public Sprite 돌부리;
     public Sprite 횡단보도;
@@ -78,6 +66,5 @@ public class ChangeImg : MonoBehaviour
         else if (EndingNumber == 27)
             gameObject.GetComponent<Image>().sprite = 횡단보도;
 
->>>>>>> Stashed changes
     }
 }

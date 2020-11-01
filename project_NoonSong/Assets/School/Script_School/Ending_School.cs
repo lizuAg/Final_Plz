@@ -19,12 +19,6 @@ public class Ending_School : MonoBehaviour
     
     bool item_tag; //현재 태그 상태 체크 = 태그됨 :true, 태그안됨: false
     int random;
-<<<<<<< HEAD
-
-    
-
-   
-=======
     
     public Fadein Fade;
     public ChangeImg ChangeImage;
@@ -35,7 +29,6 @@ public class Ending_School : MonoBehaviour
         manager.Img();
         Fade.fade.gameObject.SetActive(false);
     }
->>>>>>> master
 
     private void Update(){
 
@@ -84,21 +77,6 @@ public class Ending_School : MonoBehaviour
             box_elev = false;
         }
 
-<<<<<<< HEAD
-        //9. 교수가 먼저 도착
-        else if(class_3 && Input.GetKeyDown(KeyCode.Z)){
-            manager.talkText.text = "엔딩) [눈송]은 가까스로 교실에 도착하는 듯 했으나, 문 밖에서 미리 강의실에 와 강의를 하는 교수님을 보고 말았다! 출석체크는 이미 지나가버렸다! ";
-        }
-
-        //14. 휴강
-        else if(class_1 && Input.GetKeyDown(KeyCode.Z)){
-            manager.talkText.text = "엔딩) 오늘은 휴강! [눈송]은 독강러!";
-        }
-        
-
-        //16. 킥보드 획득
-        else if(kickboard && Input.GetKeyDown(KeyCode.Z))
-=======
         //9. 교수가 먼저 도착 (●)
         else if(class_3 && Input.GetKeyDown(KeyCode.Z)){
             ChangeImage.EndingNumber = 9;
@@ -118,7 +96,6 @@ public class Ending_School : MonoBehaviour
 
         //16. 킥보드 획득 
         else if (kickboard && Input.GetKeyDown(KeyCode.Z))
->>>>>>> master
         {
             if(item_kickboard){
                 manager.talkText.text = "이미 아이템을 획득한 상자입니다.";
@@ -172,18 +149,12 @@ public class Ending_School : MonoBehaviour
             bateacher = false;
         }
 
-<<<<<<< HEAD
-        //26. 버블티 가게 엔딩
-        else if(bubbletea && Input.GetKeyDown(KeyCode.Z)){
-            manager.talkText.text = "엔딩) 이곳은 공차아닌 고차! [눈송]은 버블티를 먹다가 버블이 이에 낀 것을 알아차렸다.! 이 찝찝함을 해결하지 못하면 강의에 집중하지 못할 것이다. 지각하더라도 이에 낀 버블은 꼭 빼고 말것이다..";
-=======
         //26. 버블티 가게 엔딩 (●)
         else if (bubbletea && Input.GetKeyDown(KeyCode.Z)){
             ChangeImage.EndingNumber = 26;
             ChangeImage.Change();
             manager.talkText.text = "엔딩) 이곳은 공차아닌 고차! [눈송]은 버블티를 먹다가 버블이 이에 낀 것을 알아차렸다.! 이 찝찝함을 해결하지 못하면 강의에 집중하지 못할 것이다. 지각하더라도 이에 낀 버블은 꼭 빼고 말것이다..";
             EndingScene();
->>>>>>> master
         }
 
         //28. 학교 앞 음식점 5개 이상 살펴보면 배불러서 지각
@@ -230,15 +201,6 @@ public class Ending_School : MonoBehaviour
             manager.talkText.text = "버스를 기다리시겠습니까? 기다리려면 z키를 눌러주세요.";
         }
 
-<<<<<<< HEAD
-        //3-1(바나나) , 3-2(돌), 트랩엔딩
-        else if(collision.gameObject.name == "Banana"){
-            manager.talkText.text = "엔딩) [눈송]은 바나나를 밟아 언덕에서 데굴데굴 굴렀다! 다리를 다쳐 학교에 가지 못한다!";
-        }
-        
-        else if(collision.gameObject.name == "Stone"){
-            manager.talkText.text = "엔딩) [눈송]은 돌에 걸려 데굴데굴 굴렀다!";
-=======
         //3-1(바나나) ● , 3-2(돌) ●, 트랩엔딩
         else if (collision.gameObject.name == "Banana"){
             ChangeImage.EndingNumber = 3;
@@ -252,7 +214,6 @@ public class Ending_School : MonoBehaviour
             ChangeImage.Change();
             manager.talkText.text = "엔딩) [눈송]은 돌에 걸려 데굴데굴 굴렀다!";
             EndingScene();
->>>>>>> master
         }
 
         //4. 라옥화 엔딩 
@@ -302,14 +263,6 @@ public class Ending_School : MonoBehaviour
             manager.talkText.text = "상자를 열려면 z키를 누르세요.";
         }
 
-<<<<<<< HEAD
-        //16-1. 효창공원 도착
-        else if(collision.gameObject.name == "Hyochangpark")
-        {   
-            if(item_kickboard)
-            {
-                manager.talkText.text = " 엔딩) [눈송]은 공원에서 시간가는 줄 모르고 킥보드를 재밌게 씽씽 타다가 결국 지각하고 말았다..!";
-=======
         //16-1. 효창공원 도착 (▲) 킥보드 없는거 엔딩그림 안그림
         else if (collision.gameObject.name == "Hyochangpark")
         {   
@@ -319,7 +272,6 @@ public class Ending_School : MonoBehaviour
                 ChangeImage.Change();
                 manager.talkText.text = " 엔딩) [눈송]은 공원에서 시간가는 줄 모르고 킥보드를 재밌게 씽씽 타다가 결국 지각하고 말았다..!";
                 EndingScene();
->>>>>>> master
             }
             else{
                 manager.talkText.text = "킥보드가 있으면 효창공원에서 더 재밌게 놀 수 있을 텐데..";
@@ -364,17 +316,6 @@ public class Ending_School : MonoBehaviour
         
         //23. 설문조사, 도믿맨
 
-<<<<<<< HEAD
-        //24. PC방 엔딩
-        else if(collision.gameObject.name == "Pcroom"){
-            manager.talkText.text = "엔딩) [눈송]은 딱 한판만..진짜 딱 한판만 더 하려다가 결국 지각하고 말았다!";
-
-        }
-
-        //25. 벚꽃 구경하다가 지각
-        else if(collision.gameObject.name == "Flower"){
-            manager.talkText.text = "엔딩) [눈송]은 벚꽃을 보다가 학교에 가지 못했다. 하지만 벚꽃의 꽃말은 중간고사!!";
-=======
         //24. PC방 엔딩 ●
         else if(collision.gameObject.name == "Pcroom"){
             ChangeImage.EndingNumber = 24;
@@ -390,7 +331,6 @@ public class Ending_School : MonoBehaviour
             ChangeImage.Change();
             manager.talkText.text = "엔딩) [눈송]은 벚꽃을 보다가 학교에 가지 못했다. 하지만 벚꽃의 꽃말은 중간고사!!";
             EndingScene();
->>>>>>> master
         }
 
         //26. 버블티 가게 엔딩
@@ -490,18 +430,12 @@ public class Ending_School : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision){
         
-<<<<<<< HEAD
-        //8. 비둘기 엔딩
-        if(collision.gameObject.tag == "Bird"){
-            manager.talkText.text = "엔딩) 비둘기의 공격!! 꺅! 비둘기야....! [눈송]은 까무라치고 말았다..";
-=======
         //8. 비둘기 엔딩 ●
         if(collision.gameObject.tag == "Bird"){
             ChangeImage.EndingNumber = 8;
             ChangeImage.Change();
             manager.talkText.text = "엔딩) 비둘기의 공격!! 꺅! 비둘기야....! [눈송]은 까무라치고 말았다..";
             EndingScene();
->>>>>>> master
         }
 
 
