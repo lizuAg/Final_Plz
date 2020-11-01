@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 guid: 1668de911db0c4a1a9a10e845e4d9eca
 TextureImporter:
+<<<<<<< HEAD
   internalIDToNameTable:
   - first:
       213: 107269439086757694
@@ -8,6 +9,9 @@ TextureImporter:
   - first:
       213: -7820916524395431091
     second: player_ladder_school_1
+=======
+  internalIDToNameTable: []
+>>>>>>> june(room)
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -37,7 +41,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: -1
+>>>>>>> june(room)
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -46,12 +54,20 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> june(room)
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   spritePixelsToUnits: 16
+=======
+  spritePixelsToUnits: 100
+>>>>>>> june(room)
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,6 +86,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -83,6 +100,9 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
+=======
+    textureCompression: 1
+>>>>>>> june(room)
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -91,6 +111,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites:
     - serializedVersion: 2
       name: player_ladder_school_0
@@ -134,6 +155,9 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+    sprites: []
+>>>>>>> june(room)
     outline: []
     physicsShape: []
     bones: []

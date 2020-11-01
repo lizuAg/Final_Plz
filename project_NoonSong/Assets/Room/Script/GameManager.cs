@@ -10,13 +10,21 @@ public class GameManager : MonoBehaviour
     public GameObject talkPanel;
     public GameObject scanObject;
     public bool isAction;
+    public bool isClicked;
     public int talkIndex;
     public GameObject EndingImg;
     public GameObject frame;
-    public float timer = 0f;
+    float timer = 0f;
     public GameObject btn;
-    public Fadein Fade;
 
+    void Awake()
+    {
+        //EndArray 초기화 <-근데 씬 바뀌어도 적용되는지는 실험해봐야함ㅜ
+        for(int i = 0; i < 50; i++)
+        {
+            EndArray.setEndingArray(i, false);
+        }
+    }
     public void Action(GameObject scanObj)
     {
         scanObject = scanObj;
@@ -27,17 +35,25 @@ public class GameManager : MonoBehaviour
     }
     public void Img()
     {
-        talkPanel.SetActive(true);
-        frame.SetActive(true);
-        EndingImg.SetActive(true);
-        btn.SetActive(true);
+        timer += Time.deltaTime;
+        if (timer > 1)
+        {
+            talkPanel.SetActive(true);
+            frame.SetActive(true);
+            EndingImg.SetActive(true);
+            btn.SetActive(true);
+        }
+        if (isClicked)
+        {
+            frame.SetActive(false);
+            btn.SetActive(false);
+        }
     }
     public void SetBtn()
     {
+        isClicked = true;
         frame.SetActive(false);
-        talkPanel.SetActive(false);
         btn.SetActive(false);
-        Fade.Update();
     }
     void Talk(int id, bool isNpc)
     {

@@ -4,14 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - door
+  - bubble
+  - Enemy
   - Chair
-  - Ladders
-  - Coin
-  - Bread
-  - Restaurant
-  - Virus
-  - Bird
+  - door
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -21,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - Platform
-  - Object
-  - Player
+  - 
+  - 
+  - 
   - 
   - 
   - 
