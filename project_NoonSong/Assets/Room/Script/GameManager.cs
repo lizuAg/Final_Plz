@@ -37,10 +37,6 @@ public class GameManager : MonoBehaviour
         frame.SetActive(false);
         talkPanel.SetActive(false);
         btn.SetActive(false);
-<<<<<<< Updated upstream
-=======
-        Fade.fades = 1.0f;
->>>>>>> Stashed changes
         Fade.Update();
     }
     void Talk(int id, bool isNpc)

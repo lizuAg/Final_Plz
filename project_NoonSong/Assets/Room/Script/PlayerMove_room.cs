@@ -15,10 +15,7 @@ public class PlayerMove_room : MonoBehaviour
     float timer = 0f;
     GameObject scanObject;
     public GameManager manager;
-<<<<<<< Updated upstream
     public GameObject frame;
-=======
->>>>>>> Stashed changes
     public Fadein Fade;
     public ChangeImg ChangeImage;
 
@@ -128,18 +125,12 @@ public class PlayerMove_room : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 manager.talkText.text = "눈송은 컴퓨터의 유혹에 빠져...학교에 늦어버렸다!!";
-                ChangeImage.EndingNumber = 4;
-                ChangeImage.Change();
-                EndingScene();
+                manager.isAction = false;
             }
         }
         else if (other.gameObject.name == "chairCollider")
         {
-<<<<<<< Updated upstream
             if (Input.GetKeyDown(KeyCode.DownArrow))
-=======
-            if (Input.GetKey(KeyCode.DownArrow))
->>>>>>> Stashed changes
             {
                 timer += Time.deltaTime;
                 anim.SetBool("isSitting", true);
@@ -164,33 +155,6 @@ public class PlayerMove_room : MonoBehaviour
                 EndingScene();
             }
         }
-        else if (other.gameObject.name == "암모나이트")
-        {
-            bool picked = false;
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                picked = true;
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                manager.talkPanel.SetActive(false);
-                picked = false;
-            }
-            if (picked == true)
-            {
-                ChangeImage.EndingNumber = 7;
-                ChangeImage.Change();
-                manager.talkText.text = "꼰대 화석 선배를 만나 몸과 마음이 피폐해졌다..!";
-                EndingScene();
-                picked = false;
-            }
-        }
-    }
-    public void EndingScene()
-    {
-       manager.Img();
-       transform.position = new Vector3(-15, 0, 0);
-       Fade.fade.gameObject.SetActive(false);
     }
     void EndingScene()
     {
